@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Верни 30% потерянных денег из воронки</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B1120',
+                        secondary: '#3B82F6',
+                        accent: '#8B5CF6',
+                        success: '#10B981',
+                        danger: '#EF4444',
+                        glass: 'rgba(255, 255, 255, 0.05)',
+                        glassBorder: 'rgba(255, 255, 255, 0.1)',
+                    },
+                    fontFamily: {
+                        sans: ['Onest', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="font-sans text-slate-300 bg-primary antialiased selection:bg-accent selection:text-white overflow-x-hidden">
+
+    <!-- NAVIGATION (Glassmorphism) -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-primary/70 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold text-white tracking-tight">Anti<span class="text-secondary">Gravity</span></a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-slate-300 hover:text-white font-medium transition-colors">Возможности</a>
+                    <a href="#faq" class="text-slate-300 hover:text-white font-medium transition-colors">FAQ</a>
+                    <a href="#pricing" class="bg-gradient-to-r from-secondary to-accent px-6 py-2.5 rounded-xl font-semibold text-white transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(139,92,246,0.4)]">
+                        Купить курс
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary/95 backdrop-blur-lg border-t border-white/10 absolute w-full shadow-2xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#features" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white rounded-md">Возможности</a>
+                <a href="#faq" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white rounded-md">FAQ</a>
+                <a href="#pricing" class="block px-3 py-2 text-base font-medium text-accent hover:text-white rounded-md">Купить курс</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+        <!-- Animated Background Blobs -->
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-secondary rounded-full mix-blend-multiply filter blur-[128px] opacity-70 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-accent rounded-full mix-blend-multiply filter blur-[128px] opacity-70 animate-blob" style="animation-delay: 2s;"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-blue-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-70 animate-blob" style="animation-delay: 4s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-block px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white font-medium text-sm mb-6 backdrop-blur-sm">
+                        🚀 Новый курс для экспертов и продюсеров
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6">
+                        Верни <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">30% потерянных</span> денег из воронки
+                    </h1>
+                    <h2 class="text-xl md:text-2xl text-slate-300 font-medium mb-8 leading-relaxed">
+                        Три проверенные механики, которые увеличат доход вашего инфопродукта за 7 дней.
+                    </h2>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-10">
+                        <a href="#pricing" class="bg-gradient-to-r from-secondary to-accent px-8 py-4 rounded-xl font-bold text-white text-lg shadow-[0_0_30px_rgba(139,92,246,0.3)] hover:shadow-[0_0_40px_rgba(139,92,246,0.5)] transition-all transform hover:-translate-y-1 text-center">
+                            Получить доступ за 2 990 ₽
+                        </a>
+                    </div>
+                    <div class="flex flex-wrap gap-6 text-sm text-slate-400 font-medium">
+                        <span class="flex items-center"><svg class="w-5 h-5 text-success mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Гарантия 14 дней</span>
+                        <span class="flex items-center"><svg class="w-5 h-5 text-success mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Доступ навсегда</span>
+                    </div>
+                </div>
+
+                <!-- Hero Image / Visual -->
+                <div class="relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop" alt="Аналитика и продажи" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl">
+                                <div class="text-white font-bold text-2xl mb-1">+ 240 000 ₽</div>
+                                <div class="text-slate-300 text-sm">Средний возврат в первый месяц</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PAIN POINTS SECTION -->
+    <section id="problems" class="py-24 relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Сколько денег вы теряете прямо сейчас?</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-secondary to-accent mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 hover:border-accent/50 transition-colors group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-red-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Брошенные платежи</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        20-30% клиентов начинают оплату, но не завершают. Это тысячи рублей каждый месяц, которые вы просто оставляете на столе.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 hover:border-secondary/50 transition-colors group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Утечка лидов</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Без системы возврата 60% потенциальных клиентов уходят навсегда после первого касания. Вы платите за трафик впустую.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 hover:border-accent/50 transition-colors group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Низкий средний чек</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Без допродаж и апсейлов вы зарабатываете в 2-3 раза меньше, чем могли бы зарабатывать на тех же самых клиентах.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MECHANICS SECTION -->
+    <section id="features" class="py-24 relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-24" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">3 механики роста дохода</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-secondary to-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="space-y-32">
+                <!-- Mechanic 1 -->
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2" data-aos="fade-right">
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                            <div class="absolute inset-0 bg-secondary mix-blend-overlay opacity-30"></div>
+                            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80" alt="Автоматизация" class="w-full h-auto object-cover">
+                            <div class="absolute top-4 right-4 bg-primary/80 backdrop-blur text-white px-4 py-2 rounded-lg font-bold">
+                                Механика #01
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2" data-aos="fade-left">
+                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">Верни брошенные платежи</h3>
+                        <p class="text-lg text-slate-400 mb-8 leading-relaxed">
+                            Настройте автоматические цепочки сообщений (follow-ups) для тех, кто создал заказ, но не оплатил. Правильный скрипт и тайминг возвращают от 23% до 45% потерянных оплат.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center mr-4"><svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><span class="text-slate-300">Готовые шаблоны писем и сообщений</span></li>
+                            <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center mr-4"><svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><span class="text-slate-300">Схемы настройки триггерных рассылок</span></li>
+                            <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center mr-4"><svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><span class="text-slate-300">Интеграция с популярными платежными системами</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mechanic 2 -->
+                <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
+                    <div class="lg:w-1/2" data-aos="fade-left">
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                            <div class="absolute inset-0 bg-accent mix-blend-overlay opacity-30"></div>
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Допродажи" class="w-full h-auto object-cover">
+                            <div class="absolute top-4 right-4 bg-primary/80 backdrop-blur text-white px-4 py-2 rounded-lg font-bold">
+                                Механика #02
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2" data-aos="fade-right">
+                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">Увеличь средний чек</h3>
+                        <p class="text-lg text-slate-400 mb-8 leading-relaxed">
+                            Внедрите upsells, cross-sells и order bumps на этапе оформления заказа и сразу после оплаты. Это увеличивает общую выручку на 15-40% без дополнительных затрат на трафик.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center mr-4"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><span class="text-slate-300">Как создавать предложения One-Time Offer (OTO)</span></li>
+                            <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center mr-4"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><span class="text-slate-300">Стратегия ценообразования для допродаж</span></li>
+                            <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center mr-4"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><span class="text-slate-300">Примеры высококонверсионных order bumps</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mechanic 3 -->
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2" data-aos="fade-right">
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                            <div class="absolute inset-0 bg-success mix-blend-overlay opacity-30"></div>
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="База контактов" class="w-full h-auto object-cover">
+                            <div class="absolute top-4 right-4 bg-primary/80 backdrop-blur text-white px-4 py-2 rounded-lg font-bold">
+                                Механика #03
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2" data-aos="fade-left">
+                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">Собери базу контактов</h3>
+                        <p class="text-lg text-slate-400 mb-8 leading-relaxed">
+                            Превратите уходящих посетителей в лояльную аудиторию с помощью правильных лид-магнитов и exit-intent попапов. Получайте в 2-3 раза больше лидов из того же объема трафика.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-success/20 flex items-center justify-center mr-4"><svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><span class="text-slate-300">Создание безотказных лид-магнитов за 1 час</span></li>
+                            <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-success/20 flex items-center justify-center mr-4"><svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><span class="text-slate-300">Настройка ретаргетинга на собранную базу</span></li>
+                            <li class="flex items-center"><div class="w-8 h-8 rounded-full bg-success/20 flex items-center justify-center mr-4"><svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><span class="text-slate-300">Прогревающие email и telegram цепочки</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF SECTION -->
+    <section class="py-24 relative border-t border-white/5 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Результаты наших клиентов</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-secondary to-accent mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=150&h=150&q=80" alt="Алексей С." class="w-14 h-14 rounded-full border-2 border-secondary object-cover">
+                        <div class="ml-4">
+                            <div class="font-bold text-white">Алексей С.</div>
+                            <div class="text-sm text-slate-400">Продюсер онлайн-школы</div>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 italic mb-6">
+                        "Внедрили механику дожима неоплаченных заказов. Только за первый месяц вернули 240 000 рублей, которые раньше просто сгорали. Окупили курс в 80 раз."
+                    </p>
+                    <div class="inline-block px-4 py-2 bg-success/20 text-success rounded-lg font-bold text-sm">
+                        + 240 000 ₽ / мес
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?fit=crop&w=150&h=150&q=80" alt="Мария В." class="w-14 h-14 rounded-full border-2 border-accent object-cover">
+                        <div class="ml-4">
+                            <div class="font-bold text-white">Мария В.</div>
+                            <div class="text-sm text-slate-400">Автор курса по дизайну</div>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 italic mb-6">
+                        "Добавила order bump (чек-лист) на страницу оплаты. Конверсия в него составила 35%. Средний чек вырос на ровном месте. Жалею, что не сделала этого раньше!"
+                    </p>
+                    <div class="inline-block px-4 py-2 bg-accent/20 text-accent rounded-lg font-bold text-sm">
+                        + 35% к чеку
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?fit=crop&w=150&h=150&q=80" alt="Игорь Д." class="w-14 h-14 rounded-full border-2 border-secondary object-cover">
+                        <div class="ml-4">
+                            <div class="font-bold text-white">Игорь Д.</div>
+                            <div class="text-sm text-slate-400">Эксперт по инвестициям</div>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 italic mb-6">
+                        "Сбор базы через exit-intent попап удвоил количество лидов. Теперь мы запускаем ретаргет на прогретую аудиторию и снизили стоимость клиента вдвое."
+                    </p>
+                    <div class="inline-block px-4 py-2 bg-secondary/20 text-secondary rounded-lg font-bold text-sm">
+                        CPA снижен на 50%
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="py-24 relative overflow-hidden border-t border-white/5">
+        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-[500px] h-[500px] bg-secondary rounded-full filter blur-[150px] opacity-30 animate-blob"></div>
+        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-[500px] h-[500px] bg-accent rounded-full filter blur-[150px] opacity-30 animate-blob" style="animation-delay: 2s;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-lg mx-auto bg-white/5 backdrop-blur-2xl border border-white/20 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(59,130,246,0.15)]" data-aos="zoom-in">
+                <div class="bg-gradient-to-r from-secondary to-accent text-white text-center py-4 font-bold tracking-wider uppercase text-sm">
+                    Специальное предложение
+                </div>
+                <div class="p-8 sm:p-12 text-center">
+                    <h3 class="text-3xl font-bold text-white mb-4">Полный доступ к курсу</h3>
+                    <div class="flex justify-center items-center gap-4 mb-8">
+                        <span class="text-5xl font-bold text-white">2 990 ₽</span>
+                        <span class="text-2xl text-slate-500 line-through decoration-danger">9 990 ₽</span>
+                    </div>
+                    
+                    <ul class="text-left space-y-5 mb-10">
+                        <li class="flex items-center">
+                            <svg class="w-6 h-6 text-success mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-200 text-lg">Видеоурок (60 мин) без воды</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-6 h-6 text-success mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-200 text-lg">3 механики с пошаговой инструкцией</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-6 h-6 text-success mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-200 text-lg">Готовые шаблоны и чек-листы</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-6 h-6 text-success mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-200 text-lg">Доступ в закрытый чат</span>
+                        </li>
+                        <li class="flex items-center p-3 rounded-xl bg-accent/20 border border-accent/30 mt-2">
+                            <svg class="w-6 h-6 text-accent mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="font-bold text-accent text-lg">Бонус: Аудит вашей воронки</span>
+                        </li>
+                    </ul>
+                    
+                    <button onclick="openPayment()" class="w-full bg-gradient-to-r from-secondary to-accent py-5 rounded-xl font-bold text-white text-xl shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:shadow-[0_0_30px_rgba(139,92,246,0.6)] hover:-translate-y-1 transition-all">
+                        Оплатить доступ
+                    </button>
+                    
+                    <p class="mt-6 text-sm text-slate-400 text-center">
+                        Гарантия возврата средств 14 дней.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="py-24 relative border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Частые вопросы</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-secondary to-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item border border-white/10 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md">
+                    <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none transition-colors hover:bg-white/10" aria-expanded="false">
+                        <span class="font-bold text-white text-lg">Сколько денег я верну с помощью этих механик?</span>
+                        <svg class="w-6 h-6 text-secondary transform transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="faq-content px-6 pb-5 text-slate-300 max-h-0 overflow-hidden transition-all duration-300 opacity-0">
+                        В среднем наши клиенты возвращают от 20% до 35% брошенных корзин и увеличивают средний чек на 15-40%. Точная сумма зависит от вашего текущего объема продаж, но механики окупаются уже в первую неделю.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item border border-white/10 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md">
+                    <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none transition-colors hover:bg-white/10" aria-expanded="false">
+                        <span class="font-bold text-white text-lg">За какое время будут первые результаты?</span>
+                        <svg class="w-6 h-6 text-secondary transform transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="faq-content px-6 pb-5 text-slate-300 max-h-0 overflow-hidden transition-all duration-300 opacity-0">
+                        Внедрение всех трех механик занимает около 2-3 дней. Первые дополнительные оплаты вы начнете получать сразу после их запуска, так как они работают автоматически на текущем трафике.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item border border-white/10 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md">
+                    <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none transition-colors hover:bg-white/10" aria-expanded="false">
+                        <span class="font-bold text-white text-lg">Нужны ли технические навыки?</span>
+                        <svg class="w-6 h-6 text-secondary transform transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="faq-content px-6 pb-5 text-slate-300 max-h-0 overflow-hidden transition-all duration-300 opacity-0">
+                        Сложные навыки программирования не требуются. Мы даем пошаговые инструкции для настройки базовых автоматизаций в популярных сервисах. Вы справитесь сами или сможете делегировать задачу помощнику.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#050811] text-slate-400 py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <a href="#" class="text-2xl font-bold text-white tracking-tight mb-2 block">Anti<span class="text-secondary">Gravity</span></a>
+                    <p class="text-sm">Система роста инфопродуктов © 2026</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="offer.html" class="hover:text-white transition-colors">Оферта</a>
+                    <a href="privacy.html" class="hover:text-white transition-colors">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/script.js"></script>
+    <script>
+        // Initialize AOS animations
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                once: true,
+                offset: 50,
+                duration: 800,
+                easing: 'ease-out-cubic',
+            });
+        });
+    </script>
+</body>
+</html>

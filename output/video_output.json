@@ -1,0 +1,10 @@
+{
+  "slides_generated": true,
+  "subtitles_generated": true,
+  "reels_prepared": true,
+  "files": [
+    "build/assets/presentation.html",
+    "build/assets/subtitles.vtt",
+    "output/reels_script.json"
+  ]
+}

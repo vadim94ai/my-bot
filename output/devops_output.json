@@ -1,0 +1,15 @@
+{
+  "urls": {
+    "landing_url": "https://funnel-optimizer-demo.vercel.app",
+    "telegram_bot": "https://t.me/funnel_optimizer_bot"
+  },
+  "status": {
+    "payment_integration": "success",
+    "legal_documents": "success"
+  },
+  "tests": {
+    "mobile_responsive": true,
+    "forms_working": true,
+    "payment_gateway": true
+  }
+}

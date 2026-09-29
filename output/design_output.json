@@ -1,0 +1,30 @@
+{
+  "design_tokens": {
+    "colors": {
+      "primary": "#1B2A4A",
+      "secondary": "#3B82F6",
+      "accent": "#F59E0B",
+      "success": "#10B981",
+      "danger": "#EF4444",
+      "neutral_light": "#F8FAFC",
+      "neutral_dark": "#0F172A",
+      "text_primary": "#1E293B",
+      "text_secondary": "#64748B",
+      "border": "#E2E8F0"
+    },
+    "typography": {
+      "headings": "Inter",
+      "body": "Inter"
+    }
+  },
+  "responsive_breakpoints": {
+    "sm": "320px",
+    "md": "768px",
+    "lg": "1024px"
+  },
+  "generated_files": [
+    "build/index.html",
+    "build/success.html",
+    "build/fail.html"
+  ]
+}

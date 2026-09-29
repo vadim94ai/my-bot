@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата прошла успешно - AntiGravity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1B2A4A',
+                        secondary: '#3B82F6',
+                        accent: '#F59E0B',
+                        success: '#10B981',
+                        neutralLight: '#F8FAFC',
+                        textPrimary: '#1E293B',
+                        textSecondary: '#64748B'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-textPrimary bg-neutralLight h-screen flex flex-col">
+    <nav class="w-full bg-white shadow-sm p-4">
+        <div class="max-w-7xl mx-auto flex justify-center md:justify-start">
+            <a href="index.html" class="text-2xl font-bold text-primary tracking-tight">Anti<span class="text-secondary">Gravity</span></a>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center animate-fade-in-up">
+            <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-12 h-12 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            
+            <h1 class="text-3xl font-bold text-primary mb-4">Оплата прошла успешно! 🎉</h1>
+            <p class="text-textSecondary mb-8">
+                Спасибо за покупку! Доступ к курсу отправлен на вашу электронную почту. Проверьте папку "Спам" или "Промоакции", если письма нет во "Входящих".
+            </p>
+            
+            <div class="space-y-4">
+                <a href="#" class="block w-full bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-4 rounded-xl transition-colors">
+                    Перейти к курсу
+                </a>
+                <a href="#" class="block w-full bg-secondary hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-xl transition-colors">
+                    Перейти в Telegram-чат
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

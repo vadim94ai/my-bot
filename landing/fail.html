@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ошибка оплаты - AntiGravity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1B2A4A',
+                        secondary: '#3B82F6',
+                        danger: '#EF4444',
+                        neutralLight: '#F8FAFC',
+                        textPrimary: '#1E293B',
+                        textSecondary: '#64748B'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-textPrimary bg-neutralLight h-screen flex flex-col">
+    <nav class="w-full bg-white shadow-sm p-4">
+        <div class="max-w-7xl mx-auto flex justify-center md:justify-start">
+            <a href="index.html" class="text-2xl font-bold text-primary tracking-tight">Anti<span class="text-secondary">Gravity</span></a>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center animate-fade-in-up">
+            <div class="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-12 h-12 text-danger" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </div>
+            
+            <h1 class="text-3xl font-bold text-primary mb-4">Ошибка оплаты</h1>
+            <p class="text-textSecondary mb-8">
+                К сожалению, платёж не прошёл. Возможно, на карте недостаточно средств или банк отклонил операцию. Попробуйте ещё раз или обратитесь в поддержку.
+            </p>
+            
+            <div class="space-y-4">
+                <a href="index.html#pricing" class="block w-full bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-4 rounded-xl transition-colors">
+                    Попробовать снова
+                </a>
+                <a href="#" class="block w-full border border-gray-300 text-textPrimary hover:bg-gray-50 font-bold py-3 px-4 rounded-xl transition-colors">
+                    Написать в поддержку
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

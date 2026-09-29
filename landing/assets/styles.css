@@ -1,0 +1,96 @@
+:root {
+    --primary: #1B2A4A;
+    --secondary: #3B82F6;
+    --accent: #F59E0B;
+    --success: #10B981;
+    --danger: #EF4444;
+    --neutral-light: #F8FAFC;
+    --neutral-dark: #0F172A;
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --border-color: #E2E8F0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom button styles */
+.btn-primary {
+    background-color: var(--primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover {
+    background-color: #15223e;
+}
+
+.btn-accent {
+    background-color: var(--accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-accent:hover {
+    background-color: #d97706;
+}
+
+/* Gradient backgrounds for mechanics */
+.mechanic-gradient-1 {
+    background: linear-gradient(135deg, #1B2A4A 0%, #2a4175 100%);
+}
+
+.mechanic-gradient-2 {
+    background: linear-gradient(135deg, #3B82F6 0%, #1d4ed8 100%);
+}
+
+.mechanic-gradient-3 {
+    background: linear-gradient(135deg, #10B981 0%, #047857 100%);
+}
+
+/* Scroll reveal animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-100 {
+    transition-delay: 100ms;
+}
+
+.delay-200 {
+    transition-delay: 200ms;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Print styles */
+@media print {
+    #navbar, #contact, footer, .btn-accent, .btn-primary {
+        display: none !important;
+    }
+    body {
+        background: white;
+        color: black;
+    }
+}

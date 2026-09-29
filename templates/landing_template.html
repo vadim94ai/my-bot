@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ landing_h1 }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1B2A4A',
+                        secondary: '#3B82F6',
+                        accent: '#F59E0B',
+                        success: '#10B981',
+                        danger: '#EF4444',
+                        neutralLight: '#F8FAFC',
+                        neutralDark: '#0F172A',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-neutralLight text-slate-800 font-sans antialiased">
+
+    <!-- Header / Hero Section -->
+    <header class="bg-primary text-white py-20 px-6 sm:px-12 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">{{ landing_h1 }}</h1>
+            <h2 class="text-xl sm:text-2xl text-secondary font-semibold mb-6">{{ landing_h2 }}</h2>
+            <p class="text-lg text-slate-300 mb-10">{{ hero_paragraph }}</p>
+            <a href="#buy" class="inline-block bg-accent hover:bg-yellow-600 text-white font-bold py-4 px-10 rounded-full transition transform hover:-translate-y-1 text-xl shadow-lg">
+                Получить доступ сейчас
+            </a>
+        </div>
+    </header>
+
+    <!-- Mechanics Section -->
+    <section class="py-20 px-6 sm:px-12 max-w-6xl mx-auto">
+        <h3 class="text-3xl font-bold text-center text-primary mb-12">Что внутри программы?</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for mechanic in mechanics %}
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                <div class="text-4xl mb-4">{{ mechanic.icon }}</div>
+                <h4 class="text-xl font-bold text-primary mb-3">{{ mechanic.title }}</h4>
+                <p class="text-slate-600">{{ mechanic.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Video Preview Section -->
+    <section class="bg-slate-100 py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-3xl font-bold text-primary mb-10">Узнайте подробности за 1 минуту</h3>
+            <div class="aspect-w-16 aspect-h-9 bg-slate-800 rounded-2xl overflow-hidden shadow-xl max-w-md mx-auto">
+                <video controls class="w-full h-auto" src="{{ video_url }}" poster="/placeholder-poster.jpg"></video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / Buy Section -->
+    <section id="buy" class="py-20 px-6 text-center">
+        <div class="max-w-2xl mx-auto bg-white p-10 rounded-3xl shadow-xl border-2 border-secondary">
+            <h3 class="text-3xl font-bold text-primary mb-4">Начать прямо сейчас</h3>
+            <p class="text-slate-600 mb-8">Моментальный доступ ко всем материалам после оплаты.</p>
+            <div class="text-5xl font-extrabold text-primary mb-8">{{ price }} {{ currency }}</div>
+            <a href="/checkout" class="block w-full bg-success hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-xl transition text-xl">
+                Оплатить участие
+            </a>
+            <p class="text-sm text-slate-500 mt-6">
+                Нажимая на кнопку, вы соглашаетесь с <a href="/offer" class="underline hover:text-primary">Офертой</a> и <a href="/privacy" class="underline hover:text-primary">Политикой конфиденциальности</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 px-6 bg-primary text-white">
+        <div class="max-w-3xl mx-auto">
+            <h3 class="text-3xl font-bold text-center mb-12">Частые вопросы</h3>
+            <div class="space-y-6">
+                {% for item in faq %}
+                <div class="bg-neutralDark p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-3 text-secondary">{{ item.question }}</h4>
+                    <p class="text-slate-300">{{ item.answer }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neutralDark text-slate-400 py-10 px-6 text-center text-sm">
+        <p class="mb-2">© 2024 {{ company_name }}. Все права защищены.</p>
+        <p class="mb-4">Служба поддержки: <a href="mailto:{{ contact_email }}" class="text-secondary hover:underline">{{ contact_email }}</a></p>
+        <div class="space-x-4">
+            <a href="/offer" class="hover:text-white transition">Договор оферты</a>
+            <a href="/privacy" class="hover:text-white transition">Политика конфиденциальности</a>
+        </div>
+    </footer>
+
+</body>
+</html>

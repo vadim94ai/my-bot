@@ -1,0 +1,10 @@
+{
+  "api_url": "https://api.prodamus.ru",
+  "payment_url": "https://payform.prodamus.ru",
+  "currency": "RUB",
+  "payment_method": "all",
+  "success_url_path": "/success.html",
+  "fail_url_path": "/fail.html",
+  "webhook_path": "/api/prodamus/webhook",
+  "signature_algorithm": "sha256"
+}

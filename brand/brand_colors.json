@@ -1,0 +1,42 @@
+{
+  "colors": {
+    "primary": {
+      "default": "#1B2A4A",
+      "hover": "#263B66",
+      "active": "#131E35",
+      "disabled": "#94A3B8"
+    },
+    "secondary": {
+      "default": "#3B82F6",
+      "hover": "#2563EB",
+      "active": "#1D4ED8",
+      "disabled": "#93C5FD"
+    },
+    "accent": {
+      "default": "#F59E0B",
+      "hover": "#D97706",
+      "active": "#B45309",
+      "disabled": "#FCD34D"
+    },
+    "background": {
+      "light": "#F8FAFC",
+      "dark": "#0F172A",
+      "card": "#FFFFFF"
+    },
+    "text": {
+      "primary": "#1E293B",
+      "secondary": "#64748B",
+      "inverse": "#F8FAFC"
+    },
+    "status": {
+      "success": "#10B981",
+      "danger": "#EF4444",
+      "warning": "#F59E0B",
+      "info": "#3B82F6"
+    }
+  },
+  "gradients": {
+    "primary": "linear-gradient(135deg, #1B2A4A 0%, #3B82F6 100%)",
+    "accent": "linear-gradient(135deg, #F59E0B 0%, #D97706 100%)"
+  }
+}

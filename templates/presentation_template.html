@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Презентация</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; overflow: hidden; background-color: #1B2A4A; }
+        .slide { 
+            display: none; 
+            min-height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem;
+            animation: fadein 0.5s ease-in;
+            background-color: #F8FAFC;
+        }
+        .slide.active { display: flex; }
+        @keyframes fadein {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Цвета бренда */
+        .text-primary-brand { color: #1B2A4A; }
+        .text-secondary-brand { color: #3B82F6; }
+        .bg-accent-brand { background-color: #F59E0B; }
+        
+        .controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 50;
+        }
+        .control-btn {
+            background: #1B2A4A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .control-btn:hover { background: #3B82F6; }
+    </style>
+</head>
+<body>
+
+    <!-- Слайд 1: Титульный -->
+    <div class="slide active" id="slide-0">
+        <h1 class="text-5xl md:text-7xl font-bold text-primary-brand mb-6">{{ title }}</h1>
+        <h2 class="text-3xl md:text-4xl text-secondary-brand font-semibold">{{ subtitle }}</h2>
+    </div>
+
+    <!-- Слайды 2-N: Тезисы -->
+    {% for thesis in theses %}
+    <div class="slide" id="slide-{{ loop.index }}">
+        <div class="text-6xl text-secondary-brand mb-8">💡</div>
+        <h3 class="text-4xl md:text-5xl font-bold text-primary-brand max-w-4xl leading-tight">{{ thesis }}</h3>
+        <div class="mt-12 text-slate-400 font-semibold text-xl">Слайд {{ loop.index }} из {{ theses|length }}</div>
+    </div>
+    {% endfor %}
+
+    <!-- Последний слайд: CTA -->
+    <div class="slide" id="slide-{{ theses|length + 1 }}">
+        <h1 class="text-5xl font-bold text-primary-brand mb-8">Начните внедрение сегодня</h1>
+        <a href="{{ cta_url | default('#') }}" class="bg-accent-brand hover:bg-yellow-600 text-white text-3xl font-bold py-6 px-12 rounded-2xl transition transform hover:scale-105 shadow-xl">
+            Узнать подробности
+        </a>
+    </div>
+
+    <!-- Навигация -->
+    <div class="controls">
+        <button class="control-btn" onclick="prevSlide()">Назад ◀</button>
+        <button class="control-btn" onclick="nextSlide()">Вперед ▶</button>
+        <button class="control-btn bg-slate-700" onclick="toggleFullScreen()">⛶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = {{ theses|length + 1 }};
+        
+        function showSlide(index) {
+            document.querySelectorAll('.slide').forEach(el => el.classList.remove('active'));
+            document.getElementById('slide-' + index).classList.add('active');
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
+
+        // Поддержка управления с клавиатуры
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "infoproduct-landing",
+  "version": "1.0.0",
+  "description": "Landing page for info-product pipeline",
+  "scripts": {
+    "deploy": "vercel --prod"
+  }
+}

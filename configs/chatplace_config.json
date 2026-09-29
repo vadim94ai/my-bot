@@ -1,0 +1,11 @@
+{
+  "api_url": "https://api.chatplace.io/v1",
+  "bot_scenario": {
+    "start_command": "/start",
+    "welcome_message_template": "Привет! 👋\n\nЯ помогу тебе вернуть потерянные деньги из воронки продаж.\n\nВнутри — 3 проверенные механики, которые увеличат твой доход на 20-40%.\n\nНажми кнопку ниже, чтобы узнать подробнее 👇",
+    "buttons": [
+      {"text": "📊 Узнать подробнее", "action": "open_url", "url_template": "https://{hosting_domain}"},
+      {"text": "💬 Поддержка", "action": "open_url", "url_template": "https://t.me/{support_username}"}
+    ]
+  }
+}
