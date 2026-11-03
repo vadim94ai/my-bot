@@ -1,8 +1,9 @@
 {
   "status": "success",
+  "modules_count": 7,
   "updated_files": [
     "landing/index.html",
     "build/index.html"
   ],
-  "palette": "violet/cyberpunk"
+  "palette": "cyberpunk-violet"
 }
