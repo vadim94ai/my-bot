@@ -1,23 +1,24 @@
 {
-  "hero_offer": "Авто-воронки удваивают доход экспертов",
+  "hero_offer": "Master AI Video Creation From Prompts to 3D Today",
   "pain_points": [
-    "Ручное управление продажами не дает свободы",
-    "Доход зависит от личного времени и усилий",
-    "Потеря клиентов из-за отсутствия автоматизации воронок"
+    "Fear of complex software and technical barriers",
+    "Difficulty paying for foreign AI services",
+    "Lack of consistent characters and original ideas"
   ],
   "key_messages": [
-    "Автоматизация воронок работает 24/7, приводя квалифицированных клиентов",
-    "Масштабируйте бизнес без найма дополнительного персонала",
-    "Повышайте LTV клиентов за счет системного Follow-up",
-    "Получайте предсказуемый доход каждый месяц",
-    "Освобождайте время на стратегию, а не на рутину"
+    "Create consistent AI characters across any video",
+    "Generate professional videos without expensive software",
+    "Master prompt engineering for viral Reels and carousels",
+    "Automate workflow and save hours of editing time",
+    "Monetize AI video skills as a freelancer or creator"
   ],
   "landing_structure": {
-    "target_audience": "Эксперты и бизнес-коучи, желающие автоматизировать продажи и удвоить доход",
+    "target_audience": "Beginners in AI, content creators, bloggers, marketers and freelancers",
     "mechanics": [
-      "Триггерные воронки на основе поведения клиента",
-      "Автоматическое уходное сопровождение (Follow-up)",
-      "Сквозная аналитика и интеграция платежных систем"
+      "Neural network basics & paying for foreign services",
+      "Character creation, consistency & prompt engineering",
+      "Automation, editing in Claude/Antigravity & motion graphics",
+      "Blender 3D AI generation & AI movie creation"
     ]
   }
 }

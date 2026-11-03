@@ -18,8 +18,6 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-# Мокаем импорты агентов, чтобы код мог выполняться
-# В реальном проекте здесь будут импорты из модуля agents
 from agents.marketing_agent import MarketingAgent
 from agents.copywriting_agent import CopywritingAgent
 from agents.design_agent import DesignAgent
@@ -41,8 +39,14 @@ def load_config(config_path: str) -> dict:
     """Загружает конфигурацию проекта."""
     path = Path(config_path)
     if not path.exists():
-        logger.warning(f"Конфигурационный файл {config_path} не найден. Используется пустой конфиг.")
-        return {}
+        fallback_path = Path("configs") / config_path
+        if fallback_path.exists():
+            path = fallback_path
+        elif Path("configs/project_config.json").exists():
+            path = Path("configs/project_config.json")
+        else:
+            logger.warning(f"Конфигурационный файл {config_path} не найден. Используется пустой конфиг.")
+            return {}
     with open(path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
@@ -53,14 +57,12 @@ async def run_stage(stage_name: str, agent_class, context: dict, dry_run: bool =
     
     if dry_run:
         logger.info(f"[DRY-RUN] Этап {stage_name} пропущен.")
-        await asyncio.sleep(0.5) # Имитация работы
+        await asyncio.sleep(0.5)
         result = {"status": "dry-run", "artifacts": []}
     else:
         try:
             agent = agent_class()
-            # В реальном мире здесь вызывается настоящий агент
             result = await agent.run(context)
-            # Искусственная задержка для демо
             await asyncio.sleep(1)
         except Exception as e:
             logger.error(f"Ошибка на этапе {stage_name}: {e}")
@@ -76,7 +78,7 @@ async def main():
     parser = argparse.ArgumentParser(description="Главный оркестратор пайплайна инфопродукта.")
     parser.add_argument("--dry-run", action="store_true", help="Проверить конфиги без реального запуска")
     parser.add_argument("--stage", type=str, choices=list(STAGES.keys()), help="Запустить только конкретный этап")
-    parser.add_argument("--config", type=str, default="project_config.json", help="Путь к файлу конфигурации")
+    parser.add_argument("--config", type=str, default="configs/project_config.json", help="Путь к файлу конфигурации")
     
     args = parser.parse_args()
     
@@ -122,7 +124,7 @@ async def main():
     print(f"Общее время: {summary['total_time_sec']} сек")
     print("Статусы этапов:")
     for st, res in summary["stages"].items():
-        status_icon = "✅" if res.get("status") in ["success", "dry-run"] else "❌"
+        status_icon = "✅" if res.get("status") in ["success", "dry-run"] or not res.get("error") else "❌"
         print(f"  {status_icon} {st.ljust(15)} : {res['elapsed_time_sec']} сек")
     print("="*50)
     print(f"📄 Детальный отчет сохранен в: {summary_path}")

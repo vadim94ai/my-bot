@@ -1,4 +1,4 @@
-﻿"""
+"""
 Модуль интеграции с Telegram Bot API (aiogram 3.x).
 """
 import os
@@ -90,3 +90,7 @@ if __name__ == "__main__":
         asyncio.run(main())
     except KeyboardInterrupt:
         print("Бот остановлен.")
+
+
+# Алиас для обратной совместимости с imports
+run_bot = main
